@@ -1,0 +1,6 @@
+{
+  "files.associations": {
+    "*.css": "postcss"
+  },
+  "vetur.validation.style": false
+}
