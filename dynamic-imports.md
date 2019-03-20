@@ -50,21 +50,22 @@ that syntax is going to be transformed on _compilation time_ and these tools are
 you might be wondering: As Alex explained, we need to wrap the `import` with an arrow function to
 be resolved (remember, promises...) only when executed.
 
-To demonstrate that they are fully lazy loaded I've prepared a repository (using Nuxt.js).
-It has 2 pages, each of them use different techniques (**With** and **Without** dynamic imports) to
-import 2 components (component "A" and component "B").
-We will see how, when loading the page with dynamic imports, webpack loads 2 separate files after the
-navigation. But, the page component itself (`/without`) using
-regular `import`s, is heavier because it loads everything at once.
+To demonstrate that they are fully lazy loaded I've prepared a
+[repository](https://github.com/gangsthub/dynamic-imports-example)
+(using Nuxt.js). It has 2 pages, each of them use different techniques (**With** and **Without**
+dynamic imports) to import 2 components (component "A" and component "B"). We will see how, when
+loading the page with dynamic imports, webpack loads 2 separate files after the navigation. But,
+the page component itself (`/without`) using regular `import`s, is heavier because it loads
+everything at once.
 
 <img
 src="assets/network.png"
 alt="Image showing network waterfall."
 aria-describedby="desc1">
 
-<p id="desc1"><i role="img" aria-label="Arrow right emoji">➡</i>Image showing network waterfall when navigating
-to both pages. And the differences between both techniches (with
-and without dynamic imports)</p>
+<p id="desc1"><i role="img" aria-label="Arrow right emoji">➡</i> Image showing network waterfall when
+navigating to both pages. And the differences between both techniches (with and without dynamic
+imports)</p>
 
 Yes, by using this technique, Webpack will create separate files ("chunks")
 to load them when needed (lazily). Custom chunk naming can be done with
@@ -76,14 +77,14 @@ src="assets/chunks.png"
 alt="Image showing the result of nuxt build."
 aria-describedby="desc2">
 
-<p id="desc2"><i role="img" aria-label="Arrow right emoji">➡</i>Image showing the result of nuxt build.
+<p id="desc2"><i role="img" aria-label="Arrow right emoji">➡</i> Image showing the result of nuxt build.
 See how different chunks are created for components A and B when dynamic imports are used!</p>
 
 ##### That's it!
 
 For a deeper exploration of code splitting techniques check:
 
-- De facto linked article: https://vuejsdevelopers.com/2017/07/03/vue-js-code-splitting-webpack/
+- De facto linked article by Anthony Gore: https://vuejsdevelopers.com/2017/07/03/vue-js-code-splitting-webpack/
 - Google's web fundamentals article by Addy Osmani and Jeremy Wagner about code splitting:
   https://developers.google.com/web/fundamentals/performance/optimizing-javascript/code-splitting/
 - Webpack docs: https://webpack.js.org/guides/code-splitting/
