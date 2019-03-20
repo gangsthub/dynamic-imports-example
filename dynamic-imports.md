@@ -63,22 +63,24 @@ src="assets/network.png"
 alt="Image showing network waterfall."
 aria-describedby="desc1">
 
-<p id="desc1"><i role="img" aria-label="Arrow right emoji">➡</i> Image showing network waterfall when
-navigating to both pages. And the differences between both techniches (with and without dynamic
-imports)</p>
+<p id="desc1"><i style="font-style: normal" role="img" aria-label="Arrow right emoji">➡</i>
+Image showing network waterfall when navigating to both pages. And the differences between both
+techniches (with and without dynamic imports)</p>
 
 Yes, by using this technique, Webpack will create separate files ("chunks")
 to load them when needed (lazily). Custom chunk naming can be done with
 [Magic comments](https://webpack.js.org/api/module-methods/#magic-comments) but
-that will be the subject of another article <i role="img" aria-label="Wink emoji">😉</i>.
+that will be the subject of another article
+<i style="font-style: normal" role="img" aria-label="Wink emoji">😉</i>.
 
 <img
 src="assets/chunks.png"
 alt="Image showing the result of nuxt build."
 aria-describedby="desc2">
 
-<p id="desc2"><i role="img" aria-label="Arrow right emoji">➡</i> Image showing the result of nuxt build.
-See how different chunks are created for components A and B when dynamic imports are used!</p>
+<p id="desc2"><i style="font-style: normal" role="img" aria-label="Arrow right emoji">➡</i>
+Image showing the result of nuxt build. See how different chunks are created for components
+A and B when dynamic imports are used!</p>
 
 ##### That's it!
 
