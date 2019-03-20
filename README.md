@@ -28,3 +28,7 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 ## Article ✏
 
 You can read this article in VueDose and in [this repo](/dynamic-imports.md).
+
+## Demo
+
+Demo site is [here](https://dynamic-imports-example.netlify.com/)
