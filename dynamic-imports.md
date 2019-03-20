@@ -17,10 +17,10 @@ This kind of feature should be done by default by the frameworks we use, as
 
 #### The meat:
 
-Whenever it's possible, I'd recommend to use dynamic imports for importing components.
+Whenever it's possible, I'd recommend to use dynamic imports to import components.
 They will be lazily loaded (by Webpack) when needed.
 
-```
+```diff
 - import MyComponent from '~/components/MyComponent.js'
 + const MyComponent = () => import('~/components/MyComponent.js') // code splitting enabled!!
 ```
