@@ -13,7 +13,7 @@ Let's take the latter definition from
 
 This kind of feature should be done by default by the frameworks we use, as
 [some people have suggested](https://twitter.com/slightlylate/status/1018880523446337536).
-(Also in [React (CRA)](https://twitter.com/slightlylate/status/1031934342132461568))
+(Also in the [React ecosystem](https://twitter.com/slightlylate/status/1031934342132461568))
 
 #### The meat:
 
