@@ -2,7 +2,7 @@ Dynamic Imports in Vue for better performance
 
 I bet you are already familiar with the terms
 [**"code splitting"**](https://webpack.js.org/guides/code-splitting/) and **"lazy loading"**.
-Let's take the latter definition from
+Let's take the latter's definition from
 [Webpack's docs](https://webpack.js.org/guides/lazy-loading):
 
 > Lazy, or "on demand", loading is a great way to optimize your site or application.
@@ -20,10 +20,16 @@ This kind of feature should be done by default by the frameworks we use, as
 Whenever it's possible, I'd recommend to use dynamic imports to import components.
 They will be lazily loaded (by Webpack) when needed.
 
+
 ```diff
 - import MyComponent from '~/components/MyComponent.js'
 + const MyComponent = () => import('~/components/MyComponent.js') // code splitting enabled!!
 ```
+
+To be a little bit more specific: we should do this as far our imported components are not
+needed for the
+[first interaction](https://developers.google.com/web/tools/lighthouse/audits/time-to-interactive).
+Because this technique loads things asynchronously and we would be delaying its interactivity.
 
 #### The explanation:
 
@@ -45,7 +51,7 @@ As explained by Alex Jover in
 
 Let's take a look at the syntax and focus on the `import` part.
 If you are using Webpack (or [Parcel](https://parceljs.org)!),
-that syntax is going to be transformed on _compilation time_ and these tools are going to use
+that syntax is going to be transformed at _compilation time_ and these tools are going to use
 `Promise`s to load asynchronously your assets/modules/components. Why the need of an arrow function,
 you might be wondering: As Alex explained, we need to wrap the `import` with an arrow function to
 be resolved (remember, promises...) only when executed.
@@ -64,12 +70,12 @@ alt="Image showing network waterfall."
 aria-describedby="desc1">
 
 <p id="desc1"><span role="img" aria-label="Arrow right emoji">➡</span>
-Image showing network waterfall when navigating to both pages. And the differences between both
-techniches (with and without dynamic imports)</p>
+Image shows network waterfall when navigating to both pages. And the differences between both
+techniques (with and without dynamic imports)</p>
 
 Yes, by using this technique, Webpack will create separate files ("chunks")
 to load them when needed (lazily). Custom chunk naming can be done with
-[Magic comments](https://webpack.js.org/api/module-methods/#magic-comments) but
+[Magic comments](https://webpack.js.org/api/module-methods/#magic-comments), but
 that will be the subject of another article
 <span role="img" aria-label="Wink emoji">😉</span>.
 
@@ -79,7 +85,7 @@ alt="Image showing the result of nuxt build."
 aria-describedby="desc2">
 
 <p id="desc2"><span role="img" aria-label="Arrow right emoji">➡</span>
-Image showing the result of nuxt build. See how different chunks are created for components
+Image shows the result of nuxt build. See how different chunks are created from components
 A and B when dynamic imports are used!</p>
 
 ##### That's it!
