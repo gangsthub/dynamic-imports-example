@@ -2,5 +2,21 @@
   "files.associations": {
     "*.css": "postcss"
   },
-  "vetur.validation.style": false
+  "vetur.validation.style": false,
+  "eslint.autoFixOnSave": true,
+  "vetur.format.defaultFormatter.css": "none",
+  "eslint.validate": [{
+      "language": "vue",
+      "autoFix": true
+    },
+    {
+      "language": "javascript",
+      "autoFix": true
+    },
+    {
+      "language": "javascriptreact",
+      "autoFix": true
+    }
+  ],
+  "vetur.validation.template": false
 }
